@@ -1,5 +1,7 @@
 import click
 import numpy as np
+from PIL import Image
+from datatools import common
 from datatools.logger import logger
 
 
@@ -15,4 +17,16 @@ def readnpy(file):
     print('shape: ', a.shape)
     print('dtype: ', a.dtype)
     print(a) 
+
+
+@click.command(help='Show image')
+@click.argument('file')
+@click.option('--palette', '-p', type=int, help='Palette mode')
+def readimg(file, palette):
+    image = Image.open(file)
+    print(image.format, image.size, image.mode)
+    if palette is not None:
+        palette_value = common.PALETTES[palette]
+        image.putpalette(palette_value)
+    image.show()
 
