@@ -1,9 +1,11 @@
 import os
 import sys
 import click
+import numpy as np
 from PIL import Image
 
 from datatools.logger import logger
+from datatools.common import PALETTES
 
 
 IMAGE_FORMATS = ['jpg', 'jpeg', 'png']
@@ -25,6 +27,8 @@ def imgcvt_single(src, dst, format, mode, suffix, overwrite):
         return
     image = Image.open(src)
     if mode is not None and image.mode != mode:
+        image_data = np.asarray(image)
+        image = Image.fromarray(image_data)
         image = image.convert(mode)
     image.save(dst)
 

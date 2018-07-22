@@ -4,7 +4,7 @@ BLACK_WHITE_PALETTE = [
 ]
 
 PALETTES = [
-    None,
+    [],
     None,
     BLACK_WHITE_PALETTE,
 ]
