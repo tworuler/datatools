@@ -4,6 +4,7 @@
 
 import click
 from datatools.reader import readnpy
+from datatools.reader import readnpys
 from datatools.reader import readimg
 
 
@@ -13,6 +14,7 @@ def cli():
 
 
 cli.add_command(readnpy)
+cli.add_command(readnpys)
 cli.add_command(readimg)
 
 
