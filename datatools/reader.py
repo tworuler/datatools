@@ -15,7 +15,7 @@ def readnpy(file):
     print(a)
 
 
-@click.command(help='Display numpy array content')
+@click.command(help='Display numpy array attributes')
 @click.argument('file', nargs=-1, type=click.Path(exists=True, dir_okay=False))
 def readnpys(file):
     print('SHAPE', 'DTYPE')
